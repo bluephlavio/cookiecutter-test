@@ -1,0 +1,4 @@
+title: {{ cookiecutter.title }}
+author: {{ cookiecutter.author }}
+date: {{ cookiecutter.date }}
+problemset: null
