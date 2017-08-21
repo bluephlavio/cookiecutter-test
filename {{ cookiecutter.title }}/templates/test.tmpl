@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{enumerate}
-\begin{latest}{problemset}
+\begin{latest}{$ problemset $}
 \item \input{tex/\latest{$ filename $}}
 \end{latest}
 \end{enumerate}
@@ -36,35 +36,35 @@
 & \multicolumn{\latest{$ len(problemset) * 2 $}}{c}{\textbf{Quesiti}}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
 \multirow{2}{*}{\textbf{Descittori}}
-\begin{latest}{problemset}[join_items={ }]
-& \multicolumn{2}{c}{\textsc{Q\latest{$ _index + 1 $}}}
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& \multicolumn{2}{c}{\textsc{Q\latest{$ '' $}}}
 \end{latest}\\
-\begin{latest}{problemset}[join_items={ }]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
 & Pt & Rif
 \end{latest}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
 \textit{Comprendere}\footnotemark[1]
-\begin{latest}{problemset}[join_items={ }]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
 & & \latest{$ pt.split(' ')[0] $}
 \end{latest}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
 \textit{Individuare}\footnotemark[2]
-\begin{latest}{problemset}[join_items={ }]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
 & & \latest{$ pt.split(' ')[1] $}
 \end{latest}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
 \textit{Sviluppare}\footnotemark[3]
-\begin{latest}{problemset}[join_items={ }]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
 & & \latest{$ pt.split(' ')[2] $}
 \end{latest}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
 \textit{Argomentare}\footnotemark[4]
-\begin{latest}{problemset}[join_items={ }]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
 & & \latest{$ pt.split(' ')[3] $}
 \end{latest}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
 Parziali
-\begin{latest}{problemset}[join_items={ }]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
 & & \latest{$ sum([int(x) for x in pt.split(' ')]) $}
 \end{latest}\\
 \cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
