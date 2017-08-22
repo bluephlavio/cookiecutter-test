@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{SIunits}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,decorations.pathreplacing,decorations.markings}
+
+\title{\latest{$ title $}}
+\author{\latest{$ author $}}
+\date{\textit{\latest{$ date $}}}
+
+\pagenumbering{gobble}
+
+\newcommand{\half}{$\frac{1}{2}$}
+\newcommand{\cell}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\begin{latest}{$ problemset $}[join={$ '\n' $}]
+\item \input{tex/\latest{$ filename $}}
+\end{latest}
+\end{enumerate}
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X*{\latest{$ len(problemset) $}}{L{.2}@{/}R{.2}}}
+\toprule
+& \multicolumn{\latest{$ len(problemset) * 2 $}}{c}{\textbf{Quesiti}}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+\multirow{2}{*}{\textbf{Descittori}}
+\begin{latest}{$ [{'n': n} for n in range(len(problemset))] $}[join={$ ' ' $}]
+& \multicolumn{2}{c}{\textsc{Q\latest{$ n + 1 $}}}
+\end{latest}\\
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& Pt & Rif
+\end{latest}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+\textit{Comprendere}\footnotemark[1]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& & \latest{$ pt.split(' ')[0] $}
+\end{latest}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+\textit{Individuare}\footnotemark[2]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& & \latest{$ pt.split(' ')[1] $}
+\end{latest}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+\textit{Sviluppare}\footnotemark[3]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& & \latest{$ pt.split(' ')[2] $}
+\end{latest}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+\textit{Argomentare}\footnotemark[4]
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& & \latest{$ pt.split(' ')[3] $}
+\end{latest}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+Parziali
+\begin{latest}{$ problemset $}[join={$ ' ' $}]
+& & \latest{$ sum([int(x) for x in pt.split(' ')]) $}
+\end{latest}\\
+\cmidrule{1-\latest{$ len(problemset) * 2 + 1 $}}
+\textbf{Totale} & \multicolumn{\latest{$ len(problemset) * 2 $}}{r}{\textbf{/\latest{$ sum([sum([int(x) for x in problem['pt'].split(' ')]) for problem in problemset]) $}}}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\small
+\begin{tabularx}{\textwidth}{m{2cm}*{16}{X}}
+\toprule
+\textbf{Punteggio} & \cell{0\\9} & \cell{10\\19} & \cell{20\\27} & \cell{28\\35} & \cell{36\\41} & \cell{42\\49} & \cell{50\\56} & \cell{57\\63} & \cell{64\\69} & \cell{70\\74} & \cell{75\\79} & \cell{80\\84} & \cell{85\\89} & \cell{90\\94} & \cell{95\\100}\\
+\midrule
+\textbf{Voto} & 3 & 3\half & 4 & 4\half & 5 & 5\half & 6 & 6\half & 7 & 7\half & 8 & 8\half & 9 & 9\half & 10\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\footnotetext[1]{Analizzare la situazione problematica, identificare i dati, interpretarli e formalizzarli in linguaggio matematico.}
+\footnotetext[2]{Mettere in campo strategie risolutive attraverso una modellizzazione del problema e individuare la strategia pi\'u adatta.}
+\footnotetext[3]{Risolvere la situazione problematica in maniera coerente, completa e corretta, applicando le regole ed eseguendo i calcoli necessari.}
+\footnotetext[4]{Commentare e giustificare opportunamente la scelta della strategia applicata, i passaggi fondamentali del processo esecutivo e la coerenza dei risultati.}
+
+\end{document}
