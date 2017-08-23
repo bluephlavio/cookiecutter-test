@@ -14,7 +14,7 @@ You need these python packages installed in your machine:
 Run
 
 ```bash
-cookicutter https://github.com/bluephlavio/cookiecutter-test
+$ cookicutter https://github.com/bluephlavio/cookiecutter-test
 ```
 
 and answer the questions. Done: the project will be generated based on your entries!
