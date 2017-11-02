@@ -7,16 +7,19 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage{SIunits}
+\usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage{pgfplots}
 \usepackage{tikz}
-\usetikzlibrary{calc,positioning,decorations.pathreplacing,decorations.markings}
+\usetikzlibrary{arrows,calc,intersections,shapes,positioning,decorations.pathreplacing,decorations.markings}
 
 \title{\latest{$ title $}}
 \author{\latest{$ author $}}
 \date{\textit{\latest{$ date $}}}
 
 \pagenumbering{gobble}
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\dioptre{D}
 
 \newcommand{\half}{$\frac{1}{2}$}
 \newcommand{\cell}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
@@ -32,6 +35,8 @@
 \item \input{tex/\latest{$ filename $}}
 \end{latest}
 \end{enumerate}
+
+\newpage
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{X*{\latest{$ len(problemset) $}}{L{.2}@{/}R{.2}}}
