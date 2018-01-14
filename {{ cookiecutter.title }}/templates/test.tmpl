@@ -10,7 +10,7 @@
 \usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage{pgfplots}
 \usepackage{tikz}
-\usetikzlibrary{arrows,calc,intersections,shapes,positioning,decorations.pathreplacing,decorations.markings}
+\usetikzlibrary{patterns,arrows,calc,intersections,shapes,positioning,decorations.pathreplacing,decorations.markings}
 
 \title{\latest{$ title $}}
 \author{\latest{$ author $}}
@@ -20,6 +20,18 @@
 
 \DeclareSIUnit\atm{atm}
 \DeclareSIUnit\dioptre{D}
+
+\tikzset{
+    point/.style={circle,fill,black!80,inner sep=0pt,minimum size=#1,opacity=0.9},
+    point/.default=3pt,
+    vector/.style={line width=1pt,postaction={decorate,decoration={markings,mark=at position 1 with {\arrow{latex}}}}},
+    block/.style={rectangle,fill=black!30,draw,minimum size=#1,opacity=0.9},
+    block/.default=15pt,
+    pulley/.style={line width=1.5pt},
+    rod/.style={line width=2pt},
+    spring/.style={decorate,decoration={coil,amplitude=5pt,segment length=#1,aspect=0.3}},
+    spring/.default=5pt
+}
 
 \newcommand{\half}{$\frac{1}{2}$}
 \newcommand{\cell}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
