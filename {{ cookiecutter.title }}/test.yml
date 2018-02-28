@@ -11,7 +11,7 @@ packages:
   - pkg: tikz
   - pkg: amsmath
   - pkg: amssymb
-  - pkg: amsfont
+  - pkg: amsfonts
   - pkg: siunitx
     opt: output-decimal-marker={,}
 tikz:
