@@ -7,19 +7,42 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage{SIunits}
+\usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage{pgfplots}
 \usepackage{tikz}
+<<<<<<< HEAD
 \begin{latest}{$ packages $}
 \usepackage[\latest{$ opt $}]{\latest{$ pkg $}}
 \end{latest}
 \usetikzlibrary{calc,positioning,decorations.pathreplacing,decorations.markings}
+=======
+\usetikzlibrary{patterns,arrows,calc,intersections,shapes,positioning,decorations.pathreplacing,decorations.markings}
+>>>>>>> fc6aa25cf912b45a305bad07bc4236064d759a82
 
-\title{\latest{$ title $}}
+\title{\vspace{\latest{$space$}}\latest{$ title $}}
 \author{\latest{$ author $}}
 \date{\textit{\latest{$ date $}}}
 
 \pagenumbering{gobble}
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\dioptre{D}
+
+\tikzset{
+    point/.style={circle,fill,black!80,inner sep=0pt,minimum size=#1,opacity=0.9},
+    point/.default=3pt,
+    vector/.style={line width=1pt,postaction={decorate,decoration={markings,mark=at position 1 with {\arrow{latex}}}}},
+    block/.style={rectangle,fill=black!30,draw,minimum size=#1,opacity=0.9},
+    block/.default=15pt,
+    ball/.style={circle,fill=black!30,draw,minimum size=#1,opacity=0.9},
+    ball/.default=5pt,
+    pulley/.style={line width=1.5pt},
+    rod/.style={line width=2pt},
+    rope/.style={line width=1pt},
+    spring/.style={decorate,decoration={coil,amplitude=5pt,segment length=#1,aspect=0.3}},
+    spring/.default=5pt,
+    wall/.style={black!10,pattern=north east lines,opacity=0.3}
+}
 
 \newcommand{\half}{$\frac{1}{2}$}
 \newcommand{\cell}[1]{%
@@ -37,6 +60,10 @@
 \item \input{tex/\latest{$ filename $}}
 \end{latest}
 \end{enumerate}
+
+\begin{latest}{$ True if problemset else False $}
+
+\newpage
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{X*{\latest{$ len(problemset) $}}{L{.2}@{/}R{.2}}}
@@ -96,5 +123,7 @@ Parziali
 \footnotetext[2]{Mettere in campo strategie risolutive attraverso una modellizzazione del problema e individuare la strategia pi\'u adatta.}
 \footnotetext[3]{Risolvere la situazione problematica in maniera coerente, completa e corretta, applicando le regole ed eseguendo i calcoli necessari.}
 \footnotetext[4]{Commentare e giustificare opportunamente la scelta della strategia applicata, i passaggi fondamentali del processo esecutivo e la coerenza dei risultati.}
+
+\end{latest}
 
 \end{document}

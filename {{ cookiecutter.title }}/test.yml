@@ -1,3 +1,4 @@
+space: 0cm
 title: {{ cookiecutter.title }}
 author: {{ cookiecutter.author }}
 date: {{ cookiecutter.date }}
