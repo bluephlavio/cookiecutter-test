@@ -1,5 +1,9 @@
 {
   "title": "Test",
   "author": "",
-  "date": ""
+  "date": "",
+  "number": 5,
+  "_copy_without_render": [
+        "*.tmpl"
+    ]
 }

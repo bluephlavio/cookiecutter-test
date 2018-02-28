@@ -1,23 +1,10 @@
 \documentclass{article}
 
-\usepackage[italian]{babel}
-\usepackage{geometry}
-\usepackage{float}
-\usepackage{tabularx}
-\usepackage{multirow}
-\usepackage{booktabs}
-\usepackage{amsmath}
-\usepackage[output-decimal-marker={,}]{siunitx}
-\usepackage{pgfplots}
-\usepackage{tikz}
-<<<<<<< HEAD
-\begin{latest}{$ packages $}
-\usepackage[\latest{$ opt $}]{\latest{$ pkg $}}
+\begin{latest}{$ packages $}[join={$ '\n' $}]
+\usepackage\latest{$ '[' + opt + ']' if 'opt' in vars() else '' $}{\latest{$ pkg $}}
 \end{latest}
-\usetikzlibrary{calc,positioning,decorations.pathreplacing,decorations.markings}
-=======
-\usetikzlibrary{patterns,arrows,calc,intersections,shapes,positioning,decorations.pathreplacing,decorations.markings}
->>>>>>> fc6aa25cf912b45a305bad07bc4236064d759a82
+
+\usetikzlibrary{\begin{latest}{$ list(map(lambda x: {'lib': x}, tikz)) $}[join={$ ',' $}]\latest{$ lib $}\end{latest}}
 
 \title{\vspace{\latest{$space$}}\latest{$ title $}}
 \author{\latest{$ author $}}
@@ -51,6 +38,12 @@
 
 \newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}
 \newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}
+
+\begin{latest}{$ extra $}
+\begin{latest}{$ list(map(lambda x: {'extra': x}, extra)) $}[join={$ '\n' $}]
+\latest{$ extra $}
+\end{latest}
+\end{latest}
 
 \begin{document}
 \maketitle

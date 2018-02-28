@@ -1,5 +1,34 @@
 space: 0cm
+packages:
+  - pkg: babel
+    opt: italian
+  - pkg: geometry
+  - pkg: float
+  - pkg: tabularx
+  - pkg: multirow
+  - pkg: booktabs
+  - pkg: pgfplots
+  - pkg: tikz
+  - pkg: amsmath
+  - pkg: amssymb
+  - pkg: amsfont
+  - pkg: siunitx
+    opt: output-decimal-marker={,}
+tikz:
+  - patterns
+  - arrows
+  - calc
+  - intersections
+  - shapes
+  - positioning
+  - decorations.pathreplacing
+  - decorations.markings
+extra: null
 title: {{ cookiecutter.title }}
 author: {{ cookiecutter.author }}
 date: {{ cookiecutter.date }}
-problemset: null
+problemset:
+{%- for i in range(cookiecutter.number|int) %}
+  - filename:
+    pt: 5 5 5 5
+{%- endfor %}
