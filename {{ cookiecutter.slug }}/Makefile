@@ -7,19 +7,20 @@ BUILD_DIR = build
 TEMPLATE = $(TEMPLATES_DIR)/{{ cookiecutter.template }}.tmpl
 TEX_FILES = $(TEX_DIR)/*.tex
 
-MAIN = test
+MAIN = {{ cookiecutter.template }}
 MAIN_DAT = $(MAIN).yml
 MAIN_TEX = $(TEX_DIR)/$(MAIN).tex
 MAIN_PDF = $(BUILD_DIR)/$(MAIN).pdf
 
-REC = test-rec
+{% if cookiecutter.template == 'test' %}
+REC = {{ cookiecutter.template }}-rec
 REC_DAT = $(REC).yml
 REC_TEX = $(TEX_DIR)/$(REC).tex
 REC_PDF = $(BUILD_DIR)/$(REC).pdf
+{% endif %}
 
 CLEAN_FILES = $(BUILD_DIR)/*.log $(BUILD_DIR)/*.aux
 DISTCLEAN_FILES = $(BUILD_DIR)/*
-
 
 .PHONY: all main rec clean distclean
 
@@ -40,6 +41,7 @@ $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
 	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
 	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
 
+{% if cookiecutter.template == 'test' %}
 rec: $(REC_TEX) $(REC_PDF)
 
 $(REC_TEX): $(TEMPLATE) $(REC_DAT)
@@ -48,4 +50,4 @@ $(REC_TEX): $(TEMPLATE) $(REC_DAT)
 $(REC_PDF): $(REC_TEX) $(TEX_FILES)
 	pdflatex -output-directory $(BUILD_DIR) $(REC_TEX)
 	pdflatex -output-directory $(BUILD_DIR) $(REC_TEX)
-
+{% endif %}
