@@ -4,7 +4,7 @@ TEMPLATES_DIR = templates
 TEX_DIR = tex
 BUILD_DIR = build
 
-TEMPLATE = $(TEMPLATES_DIR)/{{ cookiecutter.template }}.tmpl
+TEMPLATE = $(TEMPLATES_DIR)/test.tmpl
 TEX_FILES = $(TEX_DIR)/*.tex
 
 MAIN = test

@@ -1,0 +1,10 @@
+{% extends "templates/base.tmpl" %}
+{% block content %}
+{%- raw -%}
+\begin{enumerate}
+\begin{latest}{$ list(map(lambda x: {'filename': x}, problemset)) $}[join={$ '\n' $}]
+\item \input{tex/\latest{$ filename $}}
+\end{latest}
+\end{enumerate}
+{%- endraw -%}
+{% endblock %}

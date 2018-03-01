@@ -14,7 +14,7 @@ packages:
   - pkg: amsfonts
   - pkg: siunitx
     opt: output-decimal-marker={,}
-tikz:
+tikzlibs:
   - patterns
   - arrows
   - calc
@@ -24,11 +24,17 @@ tikz:
   - decorations.pathreplacing
   - decorations.markings
 extra: null
-title: {{ cookiecutter.title }}
-author: {{ cookiecutter.author }}
-date: {{ cookiecutter.date }}
+title: asd
+author: 
+date: 
 problemset:
-{%- for i in range(cookiecutter.number|int) %}
-  - filename:
+  - filename: asd0
     pt: 5 5 5 5
-{%- endfor %}
+  - filename: asd1
+    pt: 5 5 5 5
+  - filename: asd2
+    pt: 5 5 5 5
+  - filename: asd3
+    pt: 5 5 5 5
+  - filename: asd4
+    pt: 5 5 5 5
