@@ -30,12 +30,12 @@ date: {{ cookiecutter.date }}
 problemset:
 {%- if cookiecutter.template == 'test' -%}
 {%- for i in range(cookiecutter.number|int) %}
-  - filename: {{ cookiecutter.slug }}{{ i }}
+  - filename: problem{{ i }}
     pt: 5 5 5 5
 {%- endfor -%}
 {%- endif -%}
 {%- if cookiecutter.template == 'problemset' -%}
 {%- for i in range(cookiecutter.number|int) %}
-  - {{ cookiecutter.slug }}{{ i }}
+  - problem{{ i }}
 {%- endfor %}
 {%- endif -%}
