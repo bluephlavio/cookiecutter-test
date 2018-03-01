@@ -27,7 +27,6 @@ all: main clean
 
 clean:
 	rm -rf $(CLEAN_FILES)
-	find . -name *~ | xargs rm -rf
 
 distclean: clean
 	rm -rf $(DISTCLEAN_FILES)
