@@ -1,7 +1,9 @@
 {
   "title": "Test",
+  "slug": "{{ cookiecutter.title|lower|replace(' ', '-') }}",
   "author": "",
   "date": "",
+  "type": ["test", "problemset"],
   "number": 5,
   "_copy_without_render": [
         "*.tmpl"
