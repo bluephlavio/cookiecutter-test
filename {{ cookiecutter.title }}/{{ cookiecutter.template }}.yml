@@ -14,28 +14,71 @@ packages:
   - pkg: amsfonts
   - pkg: siunitx
     opt: output-decimal-marker={,}
-tikzlibs:
-  - patterns
-  - arrows
-  - calc
-  - intersections
-  - shapes
-  - positioning
-  - decorations.pathreplacing
-  - decorations.markings
-extra: null
-title: {{ cookiecutter.title }}
-author: {{ cookiecutter.author }}
-date: {{ cookiecutter.date }}
-problemset:
-{%- if cookiecutter.template == 'test' -%}
-{%- for i in range(1, cookiecutter.number|int + 1) %}
-  - filename: problem{{ i }}
-    pt: 5 5 5 5
-{%- endfor -%}
-{%- endif -%}
-{%- if cookiecutter.template == 'problemset' -%}
-{%- for i in range(1, cookiecutter.number|int + 1) %}
-  - problem{{ i }}
-{%- endfor %}
-{%- endif -%}
+tikz:
+  libs:
+    - patterns
+    - arrows
+    - calc
+    - intersections
+    - shapes
+    - positioning
+    - decorations.pathreplacing
+    - decorations.markings
+  styles:
+    - name: point
+      attrs: circle,fill,black!80,inner sep=0pt,minimum size=#1,opacity=0.9
+      def: 3pt
+    - name: vector
+      attrs: line width=1pt,postaction={decorate,decoration={markings,mark=at position 1 with {\arrow{latex}}}}
+    - name: block
+      attrs: rectangle,fill=black!30,draw,minimum size=#1,opacity=0.9
+      def: 15pt
+    - name: ball
+      attrs: circle,fill=black!30,draw,minimum size=#1,opacity=0.9
+      def: 5pt
+    - name: pulley
+      attrs: line width=1.5pt
+    - name: rod
+      attrs: line width=2pt
+    - name: rope
+      attrs: line width=1pt
+    - name: spring
+      attrs: decorate,decoration={coil,amplitude=5pt,segment length=#1,aspect=0.3}
+      def: 5pt
+    - name: wall
+      attrs: black!10,pattern=north east lines,opacity=0.3
+    - name: ray
+      attrs: line width=0.8pt,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow{>}}}}
+    - name: arrow
+      attrs: -latex
+    - name: object
+      attrs: line width=1pt,orange,-latex
+    - name: image
+      attrs: line width=1pt,blue,-latex
+    - name: doublearrow
+      attrs: <->,>=latex,thick
+    - name: brace
+      attrs: decorate,decoration={brace,amplitude=#1}
+      def: 5pt
+units:
+  - cmd: \atm
+    sym: atm
+  - cmd: \dioptre
+    sym: D
+extra:
+  - \pagenumbering{gobble}
+title: #{{ cookiecutter.title }}
+author: #{{ cookiecutter.author }}
+date: #{{ cookiecutter.date }}
+# problemset:
+# {%- if cookiecutter.template == 'test' -%}
+# {%- for i in range(1, cookiecutter.number|int + 1) %}
+  # - filename: problem{{ i }}
+    # pt: 5 5 5 5
+# {%- endfor -%}
+# {%- endif -%}
+# {%- if cookiecutter.template == 'problemset' -%}
+# {%- for i in range(1, cookiecutter.number|int + 1) %}
+  # - problem{{ i }}
+# {%- endfor %}
+# {%- endif -%}
