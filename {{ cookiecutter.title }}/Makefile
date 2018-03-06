@@ -24,7 +24,7 @@ DISTCLEAN_FILES = $(BUILD_DIR)/*
 
 .PHONY: all main rec clean distclean
 
-all: main clean
+all: main
 
 clean:
 	rm -rf $(CLEAN_FILES)
