@@ -12,7 +12,7 @@ problemset:
 {%- for i in range(1, cookiecutter.number|int + 1) %}
   - problem{{ i }}
 {%- endfor %}
-{%- endif -%}
+{%- endif %}
 packages:
   - pkg: babel
     opt: italian
@@ -33,6 +33,7 @@ tikz:
   libs:
     - patterns
     - arrows
+    - arrows.meta
     - calc
     - intersections
     - shapes
@@ -46,13 +47,14 @@ tikz:
     - name: vector
       attrs: line width=1pt,postaction={decorate,decoration={markings,mark=at position 1 with {\arrow{latex}}}}
     - name: block
-      attrs: rectangle,fill=black!30,draw,minimum size=#1,opacity=0.9
+      attrs: rectangle,fill=black!30,draw,minimum size=#1,opacity=0.9,align=center
       def: 15pt
     - name: ball
       attrs: circle,fill=black!30,draw,minimum size=#1,opacity=0.9
       def: 5pt
     - name: pulley
-      attrs: line width=1.5pt
+      attrs: draw=black,line width=0.2pt,circle,minimum size=#1,inner sep=0pt,fill=black!10
+      def: 20pt
     - name: rod
       attrs: line width=2pt
     - name: rope
