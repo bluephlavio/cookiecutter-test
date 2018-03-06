@@ -1,8 +1,8 @@
-space: 0cm
 packages:
   - pkg: babel
     opt: italian
   - pkg: geometry
+    opt: top=3cm
   - pkg: float
   - pkg: tabularx
   - pkg: multirow
