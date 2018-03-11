@@ -24,7 +24,7 @@ REC_TEX = $(TEX_DIR)/$(REC).tex
 REC_PDF = $(BUILD_DIR)/$(REC).pdf
 {% endif %}
 
-EDITOR = {{ cokkiecutter.editor }}
+EDITOR = {{ cookiecutter.editor }}
 VIEWER = {{ cookiecutter.viewer }}
 
 .PHONY: all main rec clean distclean edit view
