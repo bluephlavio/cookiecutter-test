@@ -1,10 +1,10 @@
 {
+  "template": ["test", "problemset"],
   "title": "Test",
   "slug": "{{ cookiecutter.title|lower|replace(' ', '-') }}",
   "author": "",
   "date": "",
-  "template": ["test", "problemset"],
-  "number": 5,
-  "editor": "notepad++",
+  "number_of_problems": 5,
+  "editor": "atom",
   "viewer": "texworks"
 }
