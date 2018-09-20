@@ -1,10 +1,11 @@
-LATEST = latest
+ENGINE = latest
 
-TEMPLATES_DIR = templates
+TMPL_DIR = templates
 TEX_DIR = tex
 BUILD_DIR = build
 
-TEMPLATE = $(TEMPLATES_DIR)/{{ cookiecutter.template }}.tmpl
+MAIN_TMPL = $(TMPL_DIR)/{{ cookiecutter.template }}.tmpl
+SOLUTIONS_TMPL = $(TMPL_DIR)/solutions.tmpl
 
 DAT_FILES = *.yml *.yaml
 TEX_FILES = $(TEX_DIR)/*.tex
@@ -27,7 +28,7 @@ REC_PDF = $(BUILD_DIR)/$(REC).pdf
 EDITOR = {{ cookiecutter.editor }}
 VIEWER = {{ cookiecutter.viewer }}
 
-.PHONY: all main rec clean distclean edit view
+.PHONY: all main solutions rec clean distclean edit view
 
 all: main
 
@@ -39,12 +40,21 @@ distclean: clean
 
 main: $(MAIN_TEX) $(MAIN_PDF)
 
-$(MAIN_TEX): $(TEMPLATE) $(MAIN_DAT)
-	$(LATEST) $(TEMPLATE) $(MAIN_DAT) -o $(MAIN_TEX)
+$(MAIN_TEX): $(MAIN_TMPL) $(MAIN_DAT)
+	$(ENGINE) $(MAIN_TMPL) $(MAIN_DAT) -o $(MAIN_TEX)
 
 $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
 	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
 	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
+
+solutions: $(SOLUTIONS_TEX) $(MAIN_DAT)
+
+$(SOLUTIONS_TEX): $(SOLUTIONS_TMPL) $(MAIN_DAT)
+	$(ENGINE) $(SOLUTONS_TMPL) $(MAIN_DAT) -o $(SOLUTIONS_TEX)
+
+$(SOLUTIONS_PDF): $(SOLUTIONS_TEX) $(TEX_FILES)
+	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
+	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
 
 {% if cookiecutter.template == 'test' %}
 rec: $(REC_TEX) $(REC_PDF)
