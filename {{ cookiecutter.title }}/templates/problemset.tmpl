@@ -2,8 +2,8 @@
 {% block content %}
 {%- raw -%}
 \begin{enumerate}
-\begin{latest}{$ list(map(lambda x: {'filename': x}, problemset)) $}[join={$ '\n' $}]
-\item \input{tex/\latest{$ filename $}}
+\begin{latest}{$ problemset $}[join={$ '\n' $}]
+\item \input{tex/\latest{$ problem $}}
 \end{latest}
 \end{enumerate}
 {%- endraw -%}
