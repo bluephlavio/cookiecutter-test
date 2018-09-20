@@ -1,10 +1,10 @@
 import os.path
 
+TEX_DIR = 'tex'
+
 n = {{ cookiecutter.number }}
 
 for i in range(n):
-	dir = 'tex'
-	filename = os.path.join(dir, f'problem{i+1}.tex')
+	filename = os.path.join(TEX_DIR, f'problem{i+1}.tex')
 	with open(filename, 'w') as f:
 		f.write('')
-	
