@@ -23,7 +23,7 @@ SOLUTIONS_PDF = $(BUILD_DIR)/{{ cookiecutter.slug }}-$(SOLUTIONS).tex
 
 .PHONY: all main solutions clean distclean
 
-all: main
+all: main solutions
 
 clean:
 	rm -rf $(CLEAN_FILES)
