@@ -15,16 +15,13 @@ DISTCLEAN_FILES = $(BUILD_DIR)/*
 
 MAIN = {{ cookiecutter.template }}
 MAIN_TEX = $(TEX_DIR)/$(MAIN).tex
-MAIN_PDF = $(BUILD_DIR)/$(MAIN).pdf
+MAIN_PDF = $(BUILD_DIR)/{{ cookiecutter.slug }}-$(MAIN).pdf
 
 SOLUTIONS = solutions
 SOLUTIONS_TEX = $(TEX_DIR)/$(SOLUTIONS).tex
-SOLUTIONS_PDF = $(BUILD_DIR)/$(SOLUTIONS).tex
+SOLUTIONS_PDF = $(BUILD_DIR)/{{ cookiecutter.slug }}-$(SOLUTIONS).tex
 
-EDITOR = {{ cookiecutter.editor }}
-VIEWER = {{ cookiecutter.viewer }}
-
-.PHONY: all main solutions clean distclean edit view
+.PHONY: all main solutions clean distclean
 
 all: main
 
@@ -41,7 +38,6 @@ $(MAIN_TEX): $(MAIN_TMPL) $(DAT_FILE)
 
 $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
 	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
-	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
 
 solutions: $(SOLUTIONS_TEX) $(DAT_FILE)
 
@@ -50,10 +46,3 @@ $(SOLUTIONS_TEX): $(SOLUTIONS_TMPL) $(DAT_FILE)
 
 $(SOLUTIONS_PDF): $(SOLUTIONS_TEX) $(TEX_FILES)
 	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
-	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
-
-edit:
-	$(EDITOR) $(DAT_FILE) $(TEX_FILES)
-
-view:
-	$(VIEWER) $(OUT_FILES)
