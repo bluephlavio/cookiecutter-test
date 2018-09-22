@@ -1,23 +1,23 @@
 # README
 
-This is a project template that I use for high school physics tests.
+This is a project template that I use for high school physics tests and assignments.
 
 ## Dependencies
 
 You need these python packages installed in your machine:
 
-* [latest](https://github.com/bluephlavio/latest)
 * cookiecutter
+* [latest](https://github.com/bluephlavio/latest)
 
 ## How to generate a project
 
 Run
 
 ```bash
-$ cookicutter https://github.com/bluephlavio/cookiecutter-test
+$ cookicutter gh:bluephlavio/problemset
 ```
 
-and answer the questions. The project will be generated based on your entries!
+and you will be prompted with some questions. The project will be generated based on your entries!
 Finally, from inside your project directory, run
 
 ```bash
