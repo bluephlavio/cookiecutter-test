@@ -4,5 +4,5 @@
   "slug": "{{ cookiecutter.title|lower|replace(' ', '-') }}",
   "author": "",
   "date": "",
-  "number_of_problems": 5,
+  "number_of_problems": 5
 }
