@@ -1,6 +1,7 @@
 {% extends "templates/base.tmpl" %}
 {% block content %}
 {%- raw -%}
+\section{Soluzioni}
 \begin{enumerate}
 \begin{latest}{$ problemset $}[join={$ '\n' $}]
 \item \latest{$ f'\input{{tex/{solution}}}' if 'solution' in locals() else '' $}
