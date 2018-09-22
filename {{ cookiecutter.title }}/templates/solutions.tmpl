@@ -1,0 +1,10 @@
+{% extends "templates/base.tmpl" %}
+{% block content %}
+{%- raw -%}
+\begin{enumerate}
+\begin{latest}{$ problemset $}[join={$ '\n' $}]
+\item \latest{$ f'\input\{tex{{solution}}}' if 'solution' in locals() else '-' $}
+\end{latest}
+\end{enumerate}
+{%- endraw -%}
+{% endblock %}
