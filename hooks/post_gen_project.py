@@ -8,7 +8,7 @@ TEMPLATE = '''
 \end{document}
 '''
 
-n = {{ cookiecutter.number }}
+n = {{ cookiecutter.number_of_problems }}
 
 for i in range(n):
 	problem = os.path.join(TEX_DIR, f'problem{i+1}.tex')
