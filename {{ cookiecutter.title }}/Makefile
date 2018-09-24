@@ -15,11 +15,13 @@ DISTCLEAN_FILES = $(BUILD_DIR)/*
 
 MAIN = {{ cookiecutter.template }}
 MAIN_TEX = $(TEX_DIR)/$(MAIN).tex
-MAIN_PDF = $(BUILD_DIR)/{{ cookiecutter.slug }}-$(MAIN).pdf
+MAIN_PDF_FILENAME = {{ cookiecutter.slug }}-$(MAIN).pdf
+MAIN_PDF = $(BUILD_DIR)/$(MAIN_PDF_FILENAME).pdf
 
 SOLUTIONS = solutions
 SOLUTIONS_TEX = $(TEX_DIR)/$(SOLUTIONS).tex
-SOLUTIONS_PDF = $(BUILD_DIR)/{{ cookiecutter.slug }}-$(SOLUTIONS).tex
+SOLUTIONS_PDF_FILENAME = {{ cookiecutter.slug }}-$(SOLUTIONS).tex
+SOLUTIONS_PDF = $(BUILD_DIR)/$(SOLUTIONS_PDF_FILENAME).tex
 
 .PHONY: all main solutions clean distclean
 
@@ -37,8 +39,8 @@ $(MAIN_TEX): $(MAIN_TMPL) $(DAT_FILE)
 	$(ENGINE) $(MAIN_TMPL) $(DAT_FILE) -o $(MAIN_TEX)
 
 $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
-	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
-	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
+	pdflatex -output-directory $(BUILD_DIR) -job-name $(MAIN_PDF_FILENAME) $(MAIN_TEX)
+	pdflatex -output-directory $(BUILD_DIR) -job-name $(MAIN_PDF_FILENAME) $(MAIN_TEX)
 
 solutions: $(SOLUTIONS_TEX) $(SOLUTIONS_PDF)
 
@@ -46,5 +48,5 @@ $(SOLUTIONS_TEX): $(SOLUTIONS_TMPL) $(DAT_FILE)
 	$(ENGINE) $(SOLUTIONS_TMPL) $(DAT_FILE) -o $(SOLUTIONS_TEX)
 
 $(SOLUTIONS_PDF): $(SOLUTIONS_TEX) $(TEX_FILES)
-	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
-	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
+	pdflatex -output-directory $(BUILD_DIR) -job-name $(SOLUTIONS_PDF_FILENAME) $(SOLUTIONS_TEX)
+	pdflatex -output-directory $(BUILD_DIR) -job-name $(SOLUTIONS_PDF_FILENAME) $(SOLUTIONS_TEX)
