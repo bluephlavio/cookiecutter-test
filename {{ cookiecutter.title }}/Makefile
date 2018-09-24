@@ -38,6 +38,7 @@ $(MAIN_TEX): $(MAIN_TMPL) $(DAT_FILE)
 
 $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
 	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
+	pdflatex -output-directory $(BUILD_DIR) $(MAIN_TEX)
 
 solutions: $(SOLUTIONS_TEX) $(SOLUTIONS_PDF)
 
@@ -45,4 +46,5 @@ $(SOLUTIONS_TEX): $(SOLUTIONS_TMPL) $(DAT_FILE)
 	$(ENGINE) $(SOLUTIONS_TMPL) $(DAT_FILE) -o $(SOLUTIONS_TEX)
 
 $(SOLUTIONS_PDF): $(SOLUTIONS_TEX) $(TEX_FILES)
+	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
 	pdflatex -output-directory $(BUILD_DIR) $(SOLUTIONS_TEX)
