@@ -1,8 +1,7 @@
 import os.path
 
 TEX_DIR = 'tex'
-TEMPLATE = r'''
-\documentclass[preview,border=0.5cm]{standalone}
+TEMPLATE = r'''\documentclass[preview,border=0.5cm]{standalone}
 \begin{document}
 
 \end{document}
