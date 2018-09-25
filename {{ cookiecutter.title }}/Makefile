@@ -9,7 +9,8 @@ MAIN_TMPL = $(TMPL_DIR)/{{ cookiecutter.template }}.tmpl
 SOLUTIONS_TMPL = $(TMPL_DIR)/solutions.tmpl
 
 DAT_FILE = {{ cookiecutter.template }}.yml
-TEX_FILES = $(TEX_DIR)/*.tex $(PARTIALS_DIR)/*.tex
+TEX_FILES = $(TEX_DIR)/*.tex
+PARTIALS_FILES = $(PARTIALS_DIR)/*.tex
 OUT_FILES = $(BUILD_DIR)/*.pdf
 CLEAN_FILES = $(BUILD_DIR)/*.log $(BUILD_DIR)/*.aux
 DISTCLEAN_FILES = $(BUILD_DIR)/*
@@ -36,7 +37,7 @@ distclean: clean
 
 main: $(MAIN_TEX) $(MAIN_PDF)
 
-$(MAIN_TEX): $(MAIN_TMPL) $(DAT_FILE)
+$(MAIN_TEX): $(MAIN_TMPL) $(PARTIALS_FILES) $(DAT_FILE)
 	$(ENGINE) $(MAIN_TMPL) $(DAT_FILE) -o $(MAIN_TEX)
 
 $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
@@ -45,7 +46,7 @@ $(MAIN_PDF): $(MAIN_TEX) $(TEX_FILES)
 
 solutions: $(SOLUTIONS_TEX) $(SOLUTIONS_PDF)
 
-$(SOLUTIONS_TEX): $(SOLUTIONS_TMPL) $(DAT_FILE)
+$(SOLUTIONS_TEX): $(SOLUTIONS_TMPL) $(PARTIALS_FILES) $(DAT_FILE)
 	$(ENGINE) $(SOLUTIONS_TMPL) $(DAT_FILE) -o $(SOLUTIONS_TEX)
 
 $(SOLUTIONS_PDF): $(SOLUTIONS_TEX) $(TEX_FILES)
