@@ -1,6 +1,7 @@
 ENGINE = latest
 
 TMPL_DIR = templates
+PARTIALS_DIR = partials
 TEX_DIR = tex
 BUILD_DIR = build
 
@@ -8,7 +9,7 @@ MAIN_TMPL = $(TMPL_DIR)/{{ cookiecutter.template }}.tmpl
 SOLUTIONS_TMPL = $(TMPL_DIR)/solutions.tmpl
 
 DAT_FILE = {{ cookiecutter.template }}.yml
-TEX_FILES = $(TEX_DIR)/*.tex
+TEX_FILES = $(TEX_DIR)/*.tex $(PARTIALS_DIR)/*.tex
 OUT_FILES = $(BUILD_DIR)/*.pdf
 CLEAN_FILES = $(BUILD_DIR)/*.log $(BUILD_DIR)/*.aux
 DISTCLEAN_FILES = $(BUILD_DIR)/*
