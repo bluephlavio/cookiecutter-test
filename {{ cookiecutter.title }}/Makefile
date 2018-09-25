@@ -15,13 +15,13 @@ DISTCLEAN_FILES = $(BUILD_DIR)/*
 
 MAIN = {{ cookiecutter.template }}
 MAIN_TEX = $(TEX_DIR)/$(MAIN).tex
-MAIN_PDF_FILENAME = {{ cookiecutter.slug }}-$(MAIN).pdf
+MAIN_PDF_FILENAME = {{ cookiecutter.slug }}-$(MAIN)
 MAIN_PDF = $(BUILD_DIR)/$(MAIN_PDF_FILENAME).pdf
 
 SOLUTIONS = solutions
 SOLUTIONS_TEX = $(TEX_DIR)/$(SOLUTIONS).tex
-SOLUTIONS_PDF_FILENAME = {{ cookiecutter.slug }}-$(SOLUTIONS).tex
-SOLUTIONS_PDF = $(BUILD_DIR)/$(SOLUTIONS_PDF_FILENAME).tex
+SOLUTIONS_PDF_FILENAME = {{ cookiecutter.slug }}-$(SOLUTIONS)
+SOLUTIONS_PDF = $(BUILD_DIR)/$(SOLUTIONS_PDF_FILENAME).pdf
 
 .PHONY: all main solutions clean distclean
 
