@@ -1,2 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/*
+
+# venv
+venv/
+
+# vscode
+.vscode/
