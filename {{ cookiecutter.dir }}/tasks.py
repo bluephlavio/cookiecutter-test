@@ -56,7 +56,6 @@ def newtarget(c, name, title='', author='', date=''):
         'author': author,
         'date': date,
         'slug': slug
-        ]
     }
     config['targets'] = targets
     write_config(config)
