@@ -1,5 +1,9 @@
 {
   "title": "problemset",
   "slug": "{{ cookiecutter.title | lower | replace(' ', '-') }}",
-  "dir": "{{ cookiecutter.slug }}"
+  "dir": "{{ cookiecutter.slug }}",
+  "_copy_without_render": [
+    "templates/*.tmpl",
+    "tasks.py"
+  ]
 }
