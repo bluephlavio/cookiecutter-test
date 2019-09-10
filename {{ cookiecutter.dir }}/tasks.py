@@ -6,10 +6,10 @@ from latest import render
 ROOT = os.path.abspath(os.path.dirname(__file__))
 CONFIG = os.path.join(ROOT, 'config.yml')
 
-SRC_DIR = os.path.join(HERE, 'src')
-TEMPLATES_DIR = os.path.join(HERE, 'templates')
-BUILD_DIR = os.path.join(HERE, 'build')
-DIST_DIR = os.path.join(HERE, 'dist')
+SRC_DIR = os.path.join(ROOT, 'src')
+TEMPLATES_DIR = os.path.join(ROOT, 'templates')
+BUILD_DIR = os.path.join(ROOT, 'build')
+DIST_DIR = os.path.join(ROOT, 'dist')
 
 def slugify(s):
     return s.lower().replace(' ', '-')
