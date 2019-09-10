@@ -55,11 +55,7 @@ def newtarget(c, name, title='', author='', date=''):
         'title': title,
         'author': author,
         'date': date,
-        'slug': slug,
-        'problemset': [
-            {
-                'name': 'example'
-            }
+        'slug': slug
         ]
     }
     config['targets'] = targets
@@ -78,3 +74,15 @@ def make(c, name, template='test'):
         content = render(template, target)
         f.write(content)
     c.run(f'pdflatex -output-directory {DIST_DIR} -job-name {slug} {tex_file}')
+
+
+@task
+def clean(c, dist=False, targets=False):
+    c.run('rm -rf build/*.tex')
+    c.run('rm -rf **/*.aux **/*.log **/*.sta')
+    if dist:
+        c.run('rm -rf dist/*')
+    if targets:
+        config = read_config()
+        del config['targets']
+        write_config(config)
