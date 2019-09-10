@@ -1,8 +1,5 @@
 {
-  "template": ["test", "assignment"],
-  "title": "Test",
-  "slug": "{{ cookiecutter.title|lower|replace(' ', '-') }}",
-  "author": "",
-  "date": "",
-  "number_of_problems": 5
+  "title": "problemset",
+  "slug": "{{ cookiecutter.title | lower | replace(' ', '-') }}",
+  "dir": "{{ cookiecutter.slug }}"
 }

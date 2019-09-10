@@ -1,10 +1,32 @@
-{% extends "templates/base.tmpl" %}
-{% block content %}
-{%- raw -%}
+\documentclass{article}
+
+\usepackage[subpreambles=true]{standalone}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+\newcommand{\half}{$\frac{1}{2}$}
+\newcommand{\cell}[1]{%
+    \begin{tabular}{@{}c@{}}#1\end{tabular}%
+}
+
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}
+
+\pagenumbering{gobble}
+
+\title{\latest{$ title if title else '' $}}
+\author{\latest{$ author if author else '' $}}
+\date{\textit{\latest{$ date if date else '' $}}}
+
+\begin{document}
+\maketitle
+
 \section*{Quesiti}
 \begin{enumerate}
 \begin{latest}{$ problemset $}[join={$ '\n' $}]
-\item \input{tex/\latest{$ problem $}}
+\item \input{tex/\latest{$ name $}}
 \end{latest}
 \end{enumerate}
 
@@ -72,5 +94,4 @@ Parziali
 \footnotetext[4]{Commentare e giustificare opportunamente la scelta della strategia applicata, i passaggi fondamentali del processo esecutivo e la coerenza dei risultati.}
 
 \end{latest}
-{%- endraw -%}
-{% endblock %}
+\end{document}

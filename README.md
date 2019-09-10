@@ -1,6 +1,6 @@
 # README
 
-This is a project template that I use for high school physics tests and assignments.
+This is a project template that I use for high school tests and assignments.
 
 ## Dependencies
 

@@ -1,9 +1,0 @@
-title: {{ cookiecutter.title }}
-author: {{ cookiecutter.author }}
-date: {{ cookiecutter.date }}
-problemset:
-{%- for i in range(1, cookiecutter.number_of_problems|int + 1) %}
-  - problem: problem{{ i }}
-    solution: solution{{ i }}
-    pt: 5 5 5 5
-{%- endfor %}

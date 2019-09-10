@@ -1,0 +1,4 @@
+
+title: {{ cookiecutter.title }}
+slug: {{ cookiecutter.slug }}
+targets:

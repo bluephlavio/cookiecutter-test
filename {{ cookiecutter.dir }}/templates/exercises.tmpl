@@ -1,0 +1,18 @@
+\documentclass{article}
+
+\usepackage[subpreambles=true]{standalone}
+
+\title{\latest{$ title if title else '' $}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\begin{latest}{$ problemset $}[join={$ '\n' $}]
+\item \input{tex/\latest{$ name $}}
+\end{latest}
+\end{enumerate}
+
+\end{document}
