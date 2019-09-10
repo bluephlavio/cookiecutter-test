@@ -44,7 +44,7 @@ def newproblem(c, name):
         f.write(content)
 
 @task
-def newtarget(c, name, title='', author='', date=''):
+def newtarget(c, name, title='', author='', date='', template='test'):
     config = read_config()
     title = title or config['title']
     slug = slugify(title)
@@ -55,18 +55,20 @@ def newtarget(c, name, title='', author='', date=''):
         'title': title,
         'author': author,
         'date': date,
-        'slug': slug
+        'slug': slug,
+        'template': template
     }
     config['targets'] = targets
     write_config(config)
 
 
 @task
-def make(c, name, template='test'):
+def make(c, name):
     config = read_config()
     targets = config['targets']
     target = targets[name]
     slug = target['slug']
+    template = target['template']
     template = get_template(template)
     tex_file = os.path.join(BUILD_DIR, f'{slug}.tex')
     with open(tex_file, 'w+') as f:
