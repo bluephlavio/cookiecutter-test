@@ -50,14 +50,19 @@ def newtarget(c, name, title='', author='', date=''):
     slug = slugify(title)
     slug += f'-{slugify(author)}' if author else ''
     slug += f'-{slugify(date)}' if date else ''
-    targets = config['targets']
+    targets = config.get('targets', {})
     targets[name] = {
         'title': title,
         'author': author,
         'date': date,
         'slug': slug,
-        'problemset': []
+        'problemset': [
+            {
+                'name': 'example'
+            }
+        ]
     }
+    config['targets'] = targets
     write_config(config)
 
 
