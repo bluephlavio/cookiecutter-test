@@ -1,10 +1,11 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage[subpreambles=true]{standalone}
 \usepackage{float}
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{booktabs}
+\usepackage[a4paper\latest{$ f',{margins}' if 'margins' in locals() else '' $}]{geometry}
 
 \newcommand{\half}{$\frac{1}{2}$}
 \newcommand{\cell}[1]{%
@@ -23,17 +24,17 @@
 \begin{document}
 \maketitle
 
-\section*{Quesiti}
-
 \begin{enumerate}
 \begin{latest}{$ problemset $}[join={$ '\n' $}]
-\item \input{../src/\latest{$ name $}/assignment}
+\item \input{src/\latest{$ name $}/\latest{$ version $}/assignment/assignment}
 \end{latest}
 \end{enumerate}
 
 \newpage
 
 \begin{table}[H]
+\centering
+\small
 \begin{tabularx}{\textwidth}{X*{\latest{$ len(problemset) $}}{L{.2}@{/}R{.2}}}
 \toprule
 & \multicolumn{\latest{$ len(problemset) * 2 $}}{c}{\textbf{Quesiti}}\\
@@ -77,10 +78,11 @@ Parziali
 \end{table}
 
 \begin{table}[H]
+\centering
 \small
-\begin{tabularx}{\textwidth}{m{2cm}*{16}{X}}
+\begin{tabularx}{\textwidth}{X*{16}{c}}
 \toprule
-\textbf{Punteggio} & \cell{0\\9} & \cell{10\\19} & \cell{20\\27} & \cell{28\\35} & \cell{36\\41} & \cell{42\\49} & \cell{50\\56} & \cell{57\\63} & \cell{64\\69} & \cell{70\\74} & \cell{75\\79} & \cell{80\\84} & \cell{85\\89} & \cell{90\\94} & \cell{95\\100}\\
+\textbf{Punti} & \cell{0\\9} & \cell{10\\19} & \cell{20\\27} & \cell{28\\35} & \cell{36\\41} & \cell{42\\49} & \cell{50\\56} & \cell{57\\63} & \cell{64\\69} & \cell{70\\74} & \cell{75\\79} & \cell{80\\84} & \cell{85\\89} & \cell{90\\94} & \cell{95\\100}\\
 \midrule
 \textbf{Voto} & 3 & 3\half & 4 & 4\half & 5 & 5\half & 6 & 6\half & 7 & 7\half & 8 & 8\half & 9 & 9\half & 10\\
 \bottomrule
