@@ -1,4 +1,5 @@
 import os
+import glob
 import oyaml as yaml
 from invoke import task
 from latest import render
@@ -29,10 +30,13 @@ def get_template(name):
 
 @task
 def newproblem(c, name, version):
-    problem_dir = os.path.join(SRC_DIR, name, version)
-    assignment_dir = os.path.join(problem_dir, 'assignment')
-    solution_dir = os.path.join(problem_dir, 'solution')
-    os.mkdir(problem_dir)
+    problem_dir = os.path.join(SRC_DIR, name)
+    version_dir = os.path.join(problem_dir, version)
+    assignment_dir = os.path.join(version_dir, 'assignment')
+    solution_dir = os.path.join(version_dir, 'solution')
+    if not os.path.isdir(problem_dir):
+        os.mkdir(problem_dir)
+    os.mkdir(version_dir)
     os.mkdir(assignment_dir)
     os.mkdir(solution_dir)
     assignment_file = os.path.join(assignment_dir, 'assignment.tex')
@@ -58,7 +62,7 @@ def newtarget(c, name):
     template_prompt = input('Template [test]:')
     template = template_prompt if template_prompt else 'test'
     slug = slugify(title)
-    slug += f'-{slugify(name)}' if author else ''
+    slug += f'-{slugify(name)}'
     targets = config.get('targets', {})
     targets[name] = {
         'title': title,
@@ -72,29 +76,31 @@ def newtarget(c, name):
 
 
 @task
-def make(c, name, twice=False):
+def make(c, name, twice=False, doc=None):
     config = read_config()
     targets = config['targets']
     target = targets[name]
     slug = target['slug']
-    template = target['template']
-    template = get_template(template)
-    tex_file = os.path.join(BUILD_DIR, f'{slug}.tex')
+    template_name = doc or target['template']
+    template = get_template(template_name)
+    tex_file = os.path.join(BUILD_DIR, f'{slug}-{template_name}.tex')
     with open(tex_file, 'w+') as f:
         content = render(template, target)
         f.write(content)
-    c.run(f'pdflatex -output-directory {DIST_DIR} -job-name {slug} {tex_file}')
+    out_filename = f'{slug}-{template_name}'
+    c.run(f'pdflatex -output-directory {DIST_DIR} -job-name {out_filename} {tex_file}')
     if twice:
-        c.run(f'pdflatex -output-directory {DIST_DIR} -job-name {slug} {tex_file}')
+        c.run(f'pdflatex -output-directory {DIST_DIR} -job-name {out_filename} {tex_file}')
 
 
 @task
-def view(c, name):
+def view(c, target, doc=None):
     config = read_config()
     targets = config['targets']
-    target = targets[name]
+    target = targets[target]
     slug = target['slug']
-    pdf_file = os.path.join(DIST_DIR, f'{slug}.pdf')
+    pdf_filename = f'{slug}-{doc}' if doc else slug
+    pdf_file = os.path.join(DIST_DIR, f'{pdf_filename}.pdf')
     os.system(f'sumatrapdf {pdf_file} &')
 
 
@@ -105,8 +111,8 @@ def clean(c, dist=False, targets=False):
     for f in glob.iglob('dist/*'):
         if not f.endswith('.pdf') or dist:
             os.remove(f)
-    for f in glob.iglob('src/**/*'):
-        if not f.endswith('.tex'):
+    for f in glob.iglob('src/**/*', recursive=True):
+        if not f.endswith('.tex') and os.path.isfile(f):
             os.remove(f)
     if targets:
         config = read_config()

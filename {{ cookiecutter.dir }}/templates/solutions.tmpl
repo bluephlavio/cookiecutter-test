@@ -1,6 +1,12 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage[subpreambles=true]{standalone}
+
+\pagenumbering{gobble}
+
+\title{\latest{$ title if title else '' $}}
+\author{\latest{$ author if author else '' $}}
+\date{\textit{\latest{$ date if date else '' $}}}
 
 \begin{document}
 \maketitle
